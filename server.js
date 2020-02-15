@@ -5,9 +5,7 @@ const bodyParser = require("body-parser");
 //use dotenv to configure keys and api_secret id
 const dotenv = require("dotenv");
 //configure dotenv
-
 dotenv.config();
-
 //use body parser
 app.use(
   bodyParser.urlencoded({
@@ -27,10 +25,10 @@ db.once("open", () => console.log("connected to database"));
 //setting up Server to accept JSON
 app.use(express.json());
 const port = 8080 || process.env.PORT;
-app.use((req, res, next) => {
-  console.log(req);
-  next();
-});
+
+//import routes and use
+const subScribersRoute = require("./routes/subscribers");
+app.use("/subcribers", subScribersRoute);
 
 app.get("/", (req, res, next) => {
   res.send("Welcome Home");
