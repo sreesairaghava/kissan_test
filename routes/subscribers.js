@@ -1,13 +1,5 @@
 const router = require("express").Router();
 const Subscriber = require("../models/subscriber");
-/*//TODO:
-    Get all subs --> DONE
-    Get one sub --> DONE
-    Creat one sub --> DONE
-    update one Sub --> YET TO DO
-    Delete one sub --> DONE
-*/
-
 //Get all subs
 router.get("/", async (req, res) => {
   try {
